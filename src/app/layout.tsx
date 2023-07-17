@@ -3,8 +3,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'styled-components';
-import theme from '../theme/index';
-import GlobalStyle from '../theme/globalStyle';
+import theme from '@theme/index';
+import GlobalStyle from '@theme/globalStyle';
+import { Providers } from '@redux/provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          {children}
+          <Providers>{children}</Providers>
         </ThemeProvider>
       </body>
     </html>
